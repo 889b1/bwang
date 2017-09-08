@@ -6,7 +6,7 @@ export default {
   }
 }
 
-//AuthenticationService.register({
-//  email: 'blah@blah.com',
-//  password: '1234',
-//})
+AuthenticationService.register({
+  email: this.email,
+  password: this.password
+})

@@ -14,35 +14,36 @@
         name="password"
         v-model="password"
         placeholder="**********" />
-      <br>
+      
+       <br>
 
-      <buttonRegister</button>
- </div>
-
+      <button
+         @onclick="register">
+	 Register
+	</button>
+   </div>
 </template>
-
 <script>
+import AuthenticationServce from '@/services/AuthenticationService'
 export default {
   data () {
     return {
-      email: 'user@nigerian.system',
-      password: '*******'
+      email: 'abc123',
+      password: 'abc123'
     }
   },
-  watch: {
-    email (value) {
-      console.log('email has changed value', value)
+  methods: {
+    async register () {
+      const response = await AuthenticationService.register({
+        email: this.email,
+        password: this.password
+      })
+      console.log(response.data)
     }
-  },
-  mounted () {
-    setTimeout(function () {
-      this.email = 'hello world'
-    }, 20000)
   }
 }
-
 </script>
-\
+
 <style scoped>
 
 </style>
